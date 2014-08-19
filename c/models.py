@@ -1,7 +1,7 @@
 from django.db import models
 
-class DeliveryCountry(models.Model):
-    country = models.ForeignKey('b.Country')
-
-class BeyelerPackage(models.Model):
+class APackage(models.Model):
     delivery_person = models.ForeignKey('a.Person')
+
+class DeliveryCountry(models.Model):
+    name = models.CharField(max_length=80)

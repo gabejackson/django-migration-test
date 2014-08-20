@@ -1,7 +1,8 @@
 from django.db import models
+from django.conf import settings
 
 class Address(models.Model):
-    country = models.ForeignKey('c.DeliveryCountry')
+    country = models.ForeignKey('d.DeliveryCountry')
 
-class Person(models.Model):
-    name = models.CharField(max_length=60)
+class ShopUserAddress(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='addresses')

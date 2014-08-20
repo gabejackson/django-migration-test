@@ -1,7 +1,8 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-class APackage(models.Model):
-    delivery_person = models.ForeignKey('a.Person')
+class User(AbstractUser):
+    credit_check = models.ForeignKey('b.CreditCheck',
+        blank=True, null=True, related_name='delta_vista_check_initial'
+    )
 
-class DeliveryCountry(models.Model):
-    name = models.CharField(max_length=80)
